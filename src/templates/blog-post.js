@@ -22,7 +22,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <Link to={"/blog"}>← Back to Blog</Link>
+          <h1 itemProp="headline" style={{ userSelect: "none" }}>
+            {post.frontmatter.title}
+          </h1>
           <p>{post.frontmatter.date}</p>
         </header>
         <section

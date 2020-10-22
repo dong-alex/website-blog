@@ -1,5 +1,9 @@
 /* CSS Custom Properties Definitions */
 
+.react-icons {
+  vertical-align: middle;
+}
+
 :root {
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
