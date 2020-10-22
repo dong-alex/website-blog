@@ -1,0 +1,19 @@
+---
+projects:
+  - name: "D3.js Visualizer"
+    description: "A growing collection of different visualizations using d3.js complemented with React and TypeScript. Uses a variety of data such as data gathered by myself or randomized."
+    startDate: "2020-09"
+    github: "https://github.com/dong-alex/d3-data-visualizer"
+  - name: "Application Toolbox"
+    description: "React and Google Firestore application that stores a personal collection of important URLs and descriptions to reference to when applying for multiple positions."
+    startDate: "2020-09"
+    github: "https://github.com/dong-alex/application-toolbox"
+  - name: "Technical Study Hub"
+    description: "Full stack application that track notes and analyze patterns to connect ideas together in Leetcode questions."
+    startDate: "2020-08"
+    github: "https://github.com/dong-alex/technical-study-hub"
+  - name: "pyBraille"
+    description: "2nd place 24-hour hackathon project aimed towards providing a cheaper and more mobile solution to handle accessibility."
+    startDate: "2018-01"
+    github: "https://github.com/dong-alex/BrailleApp"
+---
