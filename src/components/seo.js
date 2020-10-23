@@ -61,11 +61,9 @@ const SEO = ({ description, lang, meta, title, image }) => {
           property: `og:type`,
           content: `website`,
         },
-        {
+        featuredImage && {
           property: `og:image`,
-          content: featuredImage
-            ? `${site.siteMetadata?.siteUrl}${featuredImage}`
-            : site.siteMetadata.featuredImage,
+          content: `${site.siteMetadata?.siteUrl}${featuredImage}`,
         },
         {
           name: "author",
