@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+const SEO = ({ description, lang, meta, title, image }) => {
+  const { site, featured } = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,7 +21,16 @@ const SEO = ({ description, lang, meta, title }) => {
             social {
               twitter
             }
-            featuredImage
+            author {
+              name
+            }
+          }
+        }
+        featured: file(absolutePath: { regex: "/featured-image.png/" }) {
+          childImageSharp {
+            fluid(fit: COVER) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -30,7 +39,8 @@ const SEO = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const featuredImage = site.siteMetadata?.featuredImage
+  const featuredImage = image || featured.childImageSharp.fluid
+  const author = site.siteMetadata?.author.name
 
   return (
     <Helmet
@@ -77,6 +87,10 @@ const SEO = ({ description, lang, meta, title }) => {
           property: `og:image`,
           content: featuredImage,
         },
+        {
+          name: "author",
+          content: author,
+        },
       ].concat(meta)}
     />
   )
@@ -93,6 +107,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default SEO
