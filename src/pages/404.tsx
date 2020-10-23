@@ -1,11 +1,24 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React, { FunctionComponent } from "react"
+import { graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+interface NotFoundPageProps extends PageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+}
+
+const NotFoundPage: FunctionComponent<NotFoundPageProps> = ({
+  data,
+  location,
+}) => {
+  const siteTitle: string = data.site.siteMetadata.title
 
   return (
     <Layout location={location} title={siteTitle}>
