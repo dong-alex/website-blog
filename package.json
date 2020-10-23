@@ -2,7 +2,7 @@
   "name": "portfolio-and-programming",
   "private": true,
   "description": "Portfolio and programming blog for algorithms",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "author": "Alex Dong",
   "bugs": {
     "url": "https://github.com/dong-alex/website-blog/issues"
