@@ -7,9 +7,10 @@ import Portfolio from "./portfolio"
 
 const LandingPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const isBrowser = typeof window !== `undefined`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={isBrowser ? location : {}} title={siteTitle}>
       <SEO title="Portfolio" />
       <Link to="blog">Go to blog section</Link>
       <Portfolio />

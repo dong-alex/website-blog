@@ -1,3 +1,12 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://alex-dong-porfolio-blog.netlify.app/",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Portfolio and Programming Blog`,
@@ -6,9 +15,31 @@ module.exports = {
       summary: `Software Developer from the University of Alberta`,
     },
     description: `View my portfolio as a software developer, as well as document my takes on a variety of algorithms.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`, // need to change to https://alex-dong.com
+    siteUrl, // need to change to https://alex-dong.com
+    featuredImage: `./content/assets/featured-image.png`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

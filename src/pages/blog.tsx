@@ -50,6 +50,7 @@ const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const tagGroups = data.allMarkdownRemark.group
+  const isBrowser = typeof window !== `undefined`
 
   useEffect(() => {
     if (selectedGroup === "None") {
@@ -69,7 +70,7 @@ const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={isBrowser ? location : {}} title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
         <p>

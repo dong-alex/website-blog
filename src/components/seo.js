@@ -21,6 +21,7 @@ const SEO = ({ description, lang, meta, title }) => {
             social {
               twitter
             }
+            featuredImage
           }
         }
       }
@@ -29,6 +30,7 @@ const SEO = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const featuredImage = site.siteMetadata?.featuredImage
 
   return (
     <Helmet
@@ -69,6 +71,11 @@ const SEO = ({ description, lang, meta, title }) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: "image",
+          property: `og:image`,
+          content: featuredImage,
         },
       ].concat(meta)}
     />
