@@ -11,7 +11,7 @@ const LandingPage = ({ data, location }) => {
 
   return (
     <Layout location={isBrowser ? location : {}} title={siteTitle}>
-      <SEO title="Portfolio" />
+      <SEO title="Portfolio" image={data.image.childImageSharp.fluid.src} />
       <Link to="blog">Go to blog section</Link>
       <Portfolio />
     </Layout>
@@ -37,6 +37,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+        }
+      }
+    }
+    image: file(absolutePath: { regex: "/featured-image.jpg/" }) {
+      childImageSharp {
+        fluid(fit: COVER) {
+          src
         }
       }
     }
