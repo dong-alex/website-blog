@@ -16,7 +16,7 @@ module.exports = {
     },
     description: `View my portfolio as a software developer, as well as document my takes on a variety of algorithms.`,
     siteUrl, // need to change to https://alex-dong.com
-    featuredImage: `${siteUrl}/static/assets/featured-image.png`,
+    featuredImage: `${siteUrl}/content/assets/featured-image.jpg`,
   },
   plugins: [
     {

@@ -33,7 +33,7 @@ const ContactSection: FunctionComponent<{}> = params => {
     <Contacts>
       <ContactLine>
         <LogoNavigationLink
-          href="github.com/dong-alex"
+          href="https://github.com/dong-alex"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -42,7 +42,7 @@ const ContactSection: FunctionComponent<{}> = params => {
       </ContactLine>
       <ContactLine>
         <LogoNavigationLink
-          href="leetcode.com/dongqingli/"
+          href="https://leetcode.com/dongqingli/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -51,7 +51,7 @@ const ContactSection: FunctionComponent<{}> = params => {
       </ContactLine>
       <ContactLine>
         <LogoNavigationLink
-          href="linkedin.com/in/dongalex"
+          href="https://linkedin.com/in/dongalex"
           target="_blank"
           rel="noopener noreferrer"
         >

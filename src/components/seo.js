@@ -25,6 +25,7 @@ const SEO = ({ description, lang, meta, title, image }) => {
               name
             }
             siteUrl
+            featuredImage
           }
         }
       }
@@ -61,25 +62,10 @@ const SEO = ({ description, lang, meta, title, image }) => {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `image`,
           property: `og:image`,
-          content: `${site.siteMetadata?.siteUrl}${featuredImage}`,
+          content: featuredImage
+            ? `${site.siteMetadata?.siteUrl}${featuredImage}`
+            : site.siteMetadata.featuredImage,
         },
         {
           name: "author",
