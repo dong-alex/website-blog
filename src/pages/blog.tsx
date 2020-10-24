@@ -42,7 +42,7 @@ const BlogHeader = styled.header`
   border-right: none;
 `
 
-const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
+const Blog: FunctionComponent<BlogProps> = ({ data }) => {
   const [selectedGroup, setSelectedGroup] = useState<Topic | "None">("None")
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(
     data.allMarkdownRemark.nodes
@@ -50,7 +50,6 @@ const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const tagGroups = data.allMarkdownRemark.group
-  const isBrowser = typeof window !== `undefined`
 
   useEffect(() => {
     if (selectedGroup === "None") {
@@ -70,7 +69,7 @@ const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
 
   if (posts.length === 0) {
     return (
-      <Layout location={isBrowser ? location : {}} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
         <p>
@@ -91,7 +90,7 @@ const Blog: FunctionComponent<BlogProps> = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       <Link to="/">Go to portfolio section</Link>
       <BlogHeader />

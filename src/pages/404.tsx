@@ -14,14 +14,11 @@ interface NotFoundPageProps extends PageProps {
   }
 }
 
-const NotFoundPage: FunctionComponent<NotFoundPageProps> = ({
-  data,
-  location,
-}) => {
+const NotFoundPage: FunctionComponent<NotFoundPageProps> = ({ data }) => {
   const siteTitle: string = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="404: Not Found" />
       <h1>404: Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>

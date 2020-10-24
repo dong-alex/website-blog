@@ -1,16 +1,44 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { Link, graphql } from "gatsby"
+import { FluidObject } from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Portfolio from "./portfolio"
 
-const LandingPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const isBrowser = typeof window !== `undefined`
+interface LandingPageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      nodes: {
+        except: string
+        fields: {
+          slug: string
+        }
+        frontmatter: {
+          date: string
+          title: string
+          description: string
+        }
+      }
+    }
+    image: {
+      childImageSharp: {
+        fluid: FluidObject
+      }
+    }
+  }
+}
+
+const LandingPage: FunctionComponent<LandingPageProps> = ({ data }) => {
+  const siteTitle: string = data.site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={isBrowser ? location : {}} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Portfolio" image={data.image.childImageSharp.fluid.src} />
       <Link to="blog">Go to blog section</Link>
       <Portfolio />

@@ -1,12 +1,4 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React, { FunctionComponent } from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -75,16 +67,19 @@ const SEO: FunctionComponent<SEOProps> = ({
           property: `og:type`,
           content: `website`,
         },
-        featuredImage && {
-          property: `og:image`,
-          content: `${site.siteMetadata?.siteUrl}${featuredImage}`,
-        },
         {
           name: "author",
           content: author,
         },
       ].concat(meta)}
-    />
+    >
+      {featuredImage && (
+        <meta
+          property="og:image"
+          content={`${site.siteMetadata?.siteUrl}${featuredImage}`}
+        />
+      )}
+    </Helmet>
   )
 }
 
