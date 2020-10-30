@@ -1,4 +1,5 @@
 export enum Topics {
+  HASHMAP = "Hashmap",
   ARRAY = "Array",
   SLIDING_WINDOW = "Sliding Window",
   HEAP = "Heap",
