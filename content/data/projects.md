@@ -1,5 +1,9 @@
 ---
 projects:
+  - name: "Community Anagrams"
+    description: "Full stack application using Go, React, and PostgreSQL to check if two words are anagrams. Displays the top 10 requests made throughout its application lifetime."
+    startDate: "2020-10"
+    github: "https://github.com/dong-alex/community-anagrams"
   - name: "D3.js Visualizer"
     description: "A growing collection of different visualizations using d3.js complemented with React and TypeScript. Uses a variety of data such as data gathered by myself or randomized."
     startDate: "2020-09"
